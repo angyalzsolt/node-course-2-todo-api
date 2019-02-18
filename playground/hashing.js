@@ -30,14 +30,31 @@
 // 	console.log('Data was changed. Do not trust');
 // };
 
-const jwt = require('jsonwebtoken');
+// const jwt = require('jsonwebtoken');
 
-let data = {
-	id: 10
-};
+// let data = {
+// 	id: 10
+// };
 
-let token = jwt.sign(data, '123abc');
-console.log(token);
+// let token = jwt.sign(data, '123abc');
+// console.log(token);
 
-let decoded = jwt.verify(token, '123abc');
-console.log(decoded);
+// let decoded = jwt.verify(token, '123abc');
+// console.log(decoded);
+
+
+const bcrypt = require('bcryptjs');
+
+let password = '123abc!';
+
+// bcrypt.genSalt(10, (err, salt) => {
+// 	bcrypt.hash(password, salt, (err, hash) => {
+// 		console.log(hash);
+// 	});
+// });
+
+const hashedPassword = '$2a$10$q6ZaRRRSIGu6Kqn/8aE4/eRkCUuYDFncQyUXWn5seSsFHmPrfRytG';
+
+bcrypt.compare('123ab!', hashedPassword, (err, res) => {
+	console.log(res);
+})

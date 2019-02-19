@@ -76,7 +76,7 @@ UserSchema.statics.findByToken = function(token) {
 
 UserSchema.methods.removeToken = function(token) {
 	let user = this;
-	return user.update({
+	return user.updateOne({
 		$pull: {
 			tokens: {token}
 		}
